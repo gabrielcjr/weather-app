@@ -63,6 +63,8 @@ The page will display something like this:
 
 ## Technologies used in this project
 
+- Node.js
+
 - Express.js
 
 - Java Script
