@@ -1,10 +1,6 @@
+import 'dotenv/config';
 import express from 'express';
 import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-console.log(process.env.API_KEY);
 
 let cityRouter = express.Router();
 
@@ -16,9 +12,8 @@ cityRouter.param('city', (req, res, next, id) => {
 cityRouter.get('/:city', (req, res) => {
   
   const locationURL = encodeURI(req.city); 
-  const apiKey = process.env.EPI_KEY;
+  const apiKey = process.env.API_KEY;
   const pageKey = `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${apiKey}&q=${locationURL}`
-  
   const getCityCode = async () => {
     const response1 = await fetch(pageKey);
     const apiJsonKey = await response1.json();
